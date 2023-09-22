@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {  useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../Utility/LocalStorage/LocalStorage";
 import ShowAppliedJobs from "./ShowAppliedJobs/ShowAppliedJobs";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 const Applied_Jobs = () => {
     const jobs = useLoaderData();
@@ -47,7 +48,7 @@ const Applied_Jobs = () => {
             <div className="flex items-center justify-between">
                 <h2 className="text-2xl">Applied Jobs: {appliedJob.length}</h2>
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-primary m-1">Click</label>
+                    <label tabIndex={0} className="btn btn-primary m-1">Filter<IoIosArrowDropdown className="text-2xl"/></label>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li onClick={()=>handleJobsFilter("all")}><a>All</a></li>
                         <li onClick={()=>handleJobsFilter("remote")}><a>Remote</a></li>
@@ -56,7 +57,7 @@ const Applied_Jobs = () => {
                 </div>
             </div> <hr />
 
-            <div>
+            <div className="space-y-4 my-8">
                 {
                     displayJobs.map(job => <ShowAppliedJobs key={job.id} job={job}></ShowAppliedJobs>)
                 }

@@ -3,7 +3,7 @@ const Banner = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse ">
-                <img  src="/src/assets/images/user.png" className="max-w-sm rounded-lg shadow-2xl"  draggable={ false}/>
+                <img  src="https://i.ibb.co/JFsRF5G/user.png" className="max-w-sm rounded-lg shadow-2xl"  draggable={ false}/>
                 <div>
                     <h1 className="text-5xl font-bold ">One Step <br /> Closer To Your <br />
                     <span className="">Dream Job</span></h1>
