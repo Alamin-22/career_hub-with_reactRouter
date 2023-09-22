@@ -5,6 +5,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { FaLocationDot } from "react-icons/fa6";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../../Utility/LocalStorage/LocalStorage";
 
 const JobDetails = () => {
     const jobs = useLoaderData();
@@ -16,6 +17,8 @@ const JobDetails = () => {
 
 
     const handleApplyJobs=()=>{
+
+        saveJobApplication(idInt);
         toast.success("You have Applied SuccessFully!!",{position: "top-center",})
     }
 
