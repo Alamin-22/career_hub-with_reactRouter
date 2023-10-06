@@ -12,7 +12,7 @@ const JobDetails = () => {
     const { id } = useParams();
     const idInt = parseInt(id);
     const job = jobs.find(job => job.id === idInt);
-    console.log(job);
+    // console.log(job);
 
 
 

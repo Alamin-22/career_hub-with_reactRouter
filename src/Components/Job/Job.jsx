@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaLocationDot } from 'react-icons/fa6';
 import { BiSolidBadgeDollar } from 'react-icons/bi';
 const Job = ({ job }) => {
-    console.log(job)
+    // console.log(job)
     const { id , job_title, location, company_name, /* educational_requirements ,*/ job_type, salary, /* job_description, job_responsibility, experiences,  */logo, remote_or_onsite } = job;
     return (
 

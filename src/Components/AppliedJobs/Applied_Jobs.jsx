@@ -3,6 +3,7 @@ import {  useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../Utility/LocalStorage/LocalStorage";
 import ShowAppliedJobs from "./ShowAppliedJobs/ShowAppliedJobs";
 import { IoIosArrowDropdown } from 'react-icons/io';
+import { Helmet } from "react-helmet-async";
 
 const Applied_Jobs = () => {
     const jobs = useLoaderData();
@@ -45,6 +46,7 @@ const Applied_Jobs = () => {
     }, [jobs])
     return (
         <div>
+            <Helmet><title>Career Hub || Applied Jobs</title></Helmet>
             <div className="flex items-center justify-between">
                 <h2 className="text-2xl">Applied Jobs: {appliedJob.length}</h2>
                 <div className="dropdown">

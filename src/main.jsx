@@ -13,6 +13,11 @@ import Blogs from './Components/Blogs/Blogs';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Statistics from './Components/Statistics/Statistics';
 import JobDetails from './Components/JobDetails/JobDetails';
+import { HelmetProvider } from 'react-helmet-async';
+import Login from './Components/LogIn/Login';
+import Register from './Components/LogIn/Register.jsx/Register';
+import AuthProvider from './Firebase/AuthProvider';
+import PrivateRoute from './PrivateRoutes/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -20,18 +25,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
-    children:[
+    children: [
       {
-        path:"/",
+        path: "/",
         element: <Home></Home>,
       },
       {
         path: "/applied",
         element: <Applied_Jobs></Applied_Jobs>,
-        loader: ()=> fetch("../jobs.json"),/* do not load all data only load what i need */
+        loader: () => fetch("../jobs.json"),/* do not load all data only load what i need */
       },
       {
-        path:"/jobs",
+        path: "/jobs",
         element: <Jobs></Jobs>
       },
       {
@@ -44,16 +49,26 @@ const router = createBrowserRouter([
       },
       {
         path: "/job/:id",
-        element: <JobDetails></JobDetails>,
-        loader: ()=> fetch("../jobs.json") ,/* do not load all data only load what i need */
+        element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
+        loader: () => fetch("../jobs.json"),/* do not load all data only load what i need */
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
       }
-      
+
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <AuthProvider><RouterProvider router={router} /></AuthProvider>
+    </HelmetProvider>
   </React.StrictMode>,
 )
